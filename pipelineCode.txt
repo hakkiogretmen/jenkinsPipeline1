@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    stages {
+        stage('prepare'){
+            steps{
+               echo 'Preparing HelloWorlding Environment' 
+                echo 'Hello World'
+            }
+        }
+        stage('print'){
+            steps{
+                bat 'ping localhost'
+            }
+        }
+    }
+    post{
+        always{
+            echo 'Hele bir de su kod yazildigi zaman Hello World yazilmasa:)'
+        }
+    }
+}
